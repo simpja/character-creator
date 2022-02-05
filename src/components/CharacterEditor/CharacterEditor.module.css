@@ -4,6 +4,11 @@
 }
 
 .maxWidthWrapper {
+  /* Default positioning is static. 
+  The browser first renders all static elements, then the dynamic ones, 
+  including our fixed perspective-box and the character. 
+  So, we also need to give the maxWidhtWrappah a dynamic positioning to solve the
+  z-positioning without setting any z-indexes by using rendering order*/
   position: relative;
 }
 
@@ -32,10 +37,12 @@
 }
 
 .characterWrapper {
-  height: 500px;
   position: fixed;
-  right: 200px;
-  top: 100px;
+  top: 5%;
+  left: 60%;
+  bottom: 5%;
+  min-height: 500px;
+  /* right: 0px; */
 }
 @media only screen and (max-width: 600px) {
   .characterWrapper {
@@ -67,7 +74,8 @@
 
 .perspectiveBackground {
   background-color: hsl(195deg, 20%, 86%);
-  height: 400px;
+  height: 40%;
+  /* By default, fixed element takes up ZERO width! */
   width: 100%;
   position: fixed;
   bottom: -1px;
